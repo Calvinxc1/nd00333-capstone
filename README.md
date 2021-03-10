@@ -17,15 +17,11 @@ An AutoML run was conducted for this model, consisting of a classification, metr
 ### Results
 The resulting model consisted of a voting classifier, with an L2 penalty and 100 max iterations.
 
-*TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
-
 ## Hyperparameter Tuning
 HyperDrive was used on a logistic regression model, tuning the L1, L2, and max iteration inputs, and targeting accuracy.
 
 ### Results
-The resulting model consisted of
-
-*TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
+The resulting models from the Hyperparameter tuning ended up with identical accuracy values. As unusual as this is, I believe it can be explained with a regularization value that is too high. Increasing the `C` parameter should help this (since it is inverse of the regularization parameter). I decided agianst this however, as AutoML produced a superior model.
 
 ## Model Deployment
 *TODO*: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.
