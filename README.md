@@ -9,7 +9,7 @@ This dataset is from the Kaggle [HR Analytics: Job Change of Data Scientists](ht
 The dataset will be used to build a ML pipeline and accompanying API for assessing new employees and their likely retention levels.
 
 ### Access
-The dataset was uploaded to Azure's dataset repository, and is accessed through that.
+The dataset was uploaded to Azure's dataset repository, and is accessed through that for the AutoML process. It is accessed through this Github repo for the HyperDrive process.
 
 ## Automated ML
 An AutoML run was conducted for this model, consisting of a classification, metriced against a weighted AUC.
@@ -21,16 +21,10 @@ The resulting model consisted of a voting classifier, with an L2 penalty and 100
 HyperDrive was used on a logistic regression model, tuning the L1, L2, and max iteration inputs, and targeting accuracy.
 
 ### Results
-The resulting models from the Hyperparameter tuning ended up with identical accuracy values. As unusual as this is, I believe it can be explained with a regularization value that is too high. Increasing the `C` parameter should help this (since it is inverse of the regularization parameter). I decided agianst this however, as AutoML produced a superior model.
+The resulting models from the Hyperparameter tuning ended up with identical accuracy values. As unusual as this is, I believe it can be explained with a regularization value that is too high. Increasing the `C` parameter should help this (since it is inverse of the regularization parameter). I decided against this however, as AutoML produced a superior model.
 
 ## Model Deployment
-*TODO*: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.
+The model is deployed with a REST endpoint, needing proper authentication, and can be called with the 'ExperimentName' parameter in a `POST` request set to `ds_header_retention`.
 
 ## Screen Recording
-*TODO* Provide a link to a screen recording of the project in action. Remember that the screencast should demonstrate:
-- A working model
-- Demo of the deployed  model
-- Demo of a sample request sent to the endpoint and its response
-
-## Standout Suggestions
-*TODO (Optional):* This is where you can provide information about any standout suggestions that you have attempted.
+Screencast video: [https://www.youtube.com/watch?v=OdYLE9z6RGg](https://www.youtube.com/watch?v=OdYLE9z6RGg).
