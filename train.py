@@ -45,7 +45,7 @@ def main():
 
 # +
 data_url = 'https://github.com/Calvinxc1/nd00333-capstone/raw/master/data/aug_train.csv'
-dataset = TabularDatasetFactory.from_delimited_files(data_url)
+dataset = pd.read_csv(data_url)
 x, y = clean_data(dataset)
 
 (x_train, x_test, y_train, y_test) = train_test_split(x, y, test_size= 0.3, random_state = 0)
