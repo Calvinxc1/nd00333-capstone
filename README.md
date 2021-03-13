@@ -39,8 +39,8 @@ The resulting models from the Hyperparameter tuning ended up with identical accu
 The model is deployed with a REST endpoint, needing proper authentication, and can be called with the 'ExperimentName' parameter in a `POST` request sent to the correct URL. The body needs to be JSON formatted and contain the `data` key, which has an array of objects, containing the column names and their respective values.
 
 Deployed Model:
-[!endpoint](./images/EndpointSuccess.jpg)
-[!endpoint Azure](./images/EndpointAzure.jpg)
+![endpoint](./images/EndpointSuccess.jpg)
+![endpoint Azure](./images/EndpointAzure.jpg)
 
 The environment for the endpoint can be located in [./envFile.yml](./envFile.yml).
 
