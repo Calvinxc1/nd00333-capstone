@@ -12,7 +12,7 @@ The dataset will be used to build a ML pipeline and accompanying API for assessi
 The dataset was uploaded to Azure's dataset repository, and is accessed through that for the AutoML process. It is accessed through this Github repo for the HyperDrive process.
 
 ## Automated ML
-The AutoML process was specified for a classification task on the dataset as uploaded to Azure ML. Early stoping was enabled, with automatic featurization, for convenience. Maximum concurrent iterations was set to 5, one less than the maximum nodes of the compute cluster that the AutoML model was run on, and accuracy was set as the primary metric.
+The AutoML process was specified for a classification task on the dataset as uploaded to Azure ML. Early stoping was enabled, with automatic featurization, for convenience. Maximum concurrent iterations was set to 6, equal to the maximum nodes of the compute cluster that the AutoML model was run on, and accuracy was set as the primary metric.
 
 AutoML Run:
 ![automl run](./images/AutomlRunStatus.jpg)
@@ -36,13 +36,15 @@ HyperDrive Best result:
 The resulting models from the Hyperparameter tuning ended up with identical accuracy values. As unusual as this is, I believe it can be explained with a regularization value that is too high. Increasing the `C` parameter should help this (since it is inverse of the regularization parameter). I decided against this however, as AutoML produced a superior model.
 
 ## Model Deployment
-The model is deployed with a REST endpoint, needing proper authentication, and can be called with the 'ExperimentName' parameter in a `POST` request set to `ds_header_retention`.
+The model is deployed with a REST endpoint, needing proper authentication, and can be called with the 'ExperimentName' parameter in a `POST` request sent to the correct URL. The body needs to be JSON formatted and contain the `data` key, which has an array of objects, containing the column names and their respective values.
 
 Deployed Model:
 [!endpoint](./images/EndpointSuccess.jpg)
 
+A successful request to the API should return a JSON object with the `result` key, listing the returned value(s) in an array, with position corresponding to the original submission data.
+
 ## Screen Recording
-Screencast video: [https://www.youtube.com/watch?v=OdYLE9z6RGg](https://www.youtube.com/watch?v=OdYLE9z6RGg).
+Screencast video: [https://youtu.be/RZkBhyLL8iQ](https://youtu.be/RZkBhyLL8iQ).
 
 # Future Improvements
 The dataset was not processed very rigorously. Engineering across some of the existing features would likely yield effective results. This would be supported by an effective exploratory analysis.
