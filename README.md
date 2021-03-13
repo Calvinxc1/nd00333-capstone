@@ -19,7 +19,7 @@ AutoML Run:
 
 ### Results
 Best AutoML result:
-![automl best](/.images/AutomlBestModel.jpg)
+![automl best](./images/AutomlBestModel.jpg)
 The best model was the Voting Ensemble model, with an accuracy of 0.799. Interestingly enough this seems to often be the best model type to use.
 
 ## Hyperparameter Tuning
