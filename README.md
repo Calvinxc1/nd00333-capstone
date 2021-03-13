@@ -40,6 +40,9 @@ The model is deployed with a REST endpoint, needing proper authentication, and c
 
 Deployed Model:
 [!endpoint](./images/EndpointSuccess.jpg)
+[!endpoint Azure](./images/EndpointAzure.jpg)
+
+The environment for the endpoint can be located in [./envFile.yml](./envFile.yml).
 
 A successful request to the API should return a JSON object with the `result` key, listing the returned value(s) in an array, with position corresponding to the original submission data.
 
